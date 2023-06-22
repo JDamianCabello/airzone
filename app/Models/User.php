@@ -15,4 +15,9 @@ class User extends Model
         'username',
         'full_name',
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user');
+    }
 }

@@ -14,4 +14,14 @@ class Comment extends Model
         'datetime',
         'content'
     ];
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class, 'id');
+    }
+
+    public function writer()
+    {
+        return $this->belongsTo(User::class, 'user');
+    }
 }

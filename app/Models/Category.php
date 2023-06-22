@@ -15,4 +15,9 @@ class Category extends Model
         'slug',
         'visible'
     ];
+
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class, 'category_post', 'category', 'blog');
+    }
 }
