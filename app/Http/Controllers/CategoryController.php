@@ -22,8 +22,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request)
     {
-        $category = Category::create($request->all());
-        return new CategoryResource($category);
+        return new CategoryResource(Category::create($request->all()));
     }
 
     /**
@@ -54,9 +53,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if(!$category){
-            return response()->json(['error' => 'Resource not found'], 404);
-        }
         $category->delete();
         return response()->json(null, 204);
     }

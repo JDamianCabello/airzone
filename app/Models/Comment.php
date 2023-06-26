@@ -9,6 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $hidden = ['pivot'];
+
     public $timestamps = false;
 
     protected $fillable = [
